@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    private ContactFilter2D _contactFilter;
 
     private InputAction _jumpAction;
 
@@ -27,6 +26,14 @@ public class PlayerController : MonoBehaviour
             }
 
             yield return new WaitForFixedUpdate();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "DeathObject")
+        {
+
         }
     }
 }

@@ -1,22 +1,46 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
+[System.Serializable]
 public class Size : Base
 {
     [field: SerializeField]
     public float SizeScale { get; private set; }
-   
-    public void ChangeSize(RectTransform transform,BuffVariable buffVariable)
+    public Size(int bonusTime, float sizeScale): base(bonusTime)
     {
-        Vector3 initialScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        SizeScale = sizeScale;
+    }
 
-        transform.localScale = buffVariable == BuffVariable.Positive ? 
-            new Vector3(initialScale.x, initialScale.y, initialScale.z) * 2 : 
-            new Vector3(initialScale.x, initialScale.y, initialScale.z) / 2;
+    protected override void OnTriggerEnter2D(Collider2D other)
+    {
+        base.OnTriggerEnter2D(other);
 
-        new WaitForSeconds(BonusTime);
+        other.gameObject.GetComponent<Player>().StartCoroutine(ChangeSize(other.gameObject.GetComponent<RectTransform>()));
+        Destroy(gameObject);
+    }
 
-        transform.localScale = initialScale;
+    private IEnumerator ChangeSize(RectTransform transform)
+    {
+        Vector2 initialScale = transform.sizeDelta;
+
+        switch (buffVariable)
+        {
+            case BuffVariable.Positive:
+                transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, initialScale.x * SizeScale);
+                transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialScale.y * SizeScale);
+                break;
+            case BuffVariable.Negative:
+                transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, initialScale.x / SizeScale);
+                transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialScale.y / SizeScale);
+                break;
+            default:
+                Debug.Log("Ошибка в выборе типа бафа!");
+                break;
+        }
+
+        yield return new WaitForSeconds(BonusTime);
+
+        transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, initialScale.x);
+        transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialScale.y);
     }
 }
