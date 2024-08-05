@@ -22,16 +22,32 @@ public class Size : Base
     private IEnumerator ChangeSize(RectTransform transform)
     {
         Vector2 initialScale = transform.sizeDelta;
+        float baseRadius = 0;
+
+        if (transform.gameObject.TryGetComponent<CircleCollider2D>(out CircleCollider2D colider))
+        {
+            baseRadius = colider.radius;
+        }
 
         switch (buffVariable)
         {
             case BuffVariable.Positive:
                 transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, initialScale.x * SizeScale);
                 transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialScale.y * SizeScale);
+                
+                if (baseRadius != 0)
+                {
+                    colider.radius *= 2;
+                }
                 break;
             case BuffVariable.Negative:
                 transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, initialScale.x / SizeScale);
                 transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialScale.y / SizeScale);
+
+                if (baseRadius != 0)
+                {
+                    colider.radius /= 2;
+                }
                 break;
             default:
                 Debug.Log("Ошибка в выборе типа бафа!");
@@ -42,5 +58,10 @@ public class Size : Base
 
         transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, initialScale.x);
         transform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, initialScale.y);
+
+        if (baseRadius != 0)
+        {
+            colider.radius = baseRadius;
+        }
     }
 }

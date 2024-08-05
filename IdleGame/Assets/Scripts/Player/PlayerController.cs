@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,11 +30,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Death()
     {
-        if(collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "DeathObject")
-        {
-
-        }
+        Time.timeScale = 0f;
     }
 }
