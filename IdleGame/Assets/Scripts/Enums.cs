@@ -19,3 +19,9 @@ public enum ProjectileType
     Electro,
     Earth
 }
+
+public enum WeaponDirection
+{
+    Left,
+    Right
+}

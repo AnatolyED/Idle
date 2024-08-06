@@ -16,6 +16,16 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Jump());
     }
 
+    private void OnEnable()
+    {
+        Player.onDeath += Death;
+    }
+
+    private void OnDisable()
+    {
+        Player.onDeath -= Death;
+    }
+
     private IEnumerator Jump() 
     {
 
