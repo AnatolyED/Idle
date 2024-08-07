@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &80002629
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &108487442
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &296012939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!224 &546729104 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5948880590203508641, guid: 3f635fa288962ad439960b5418fc2843, type: 3}
@@ -1433,6 +1438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &824130790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &849321919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,6 +1538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &859195706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,6 +1588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &886746140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,6 +1638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &924622205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +1980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &1350099184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &1582153146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,6 +2230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &1605587152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &1616177631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 0
+  _projectilePrefab: {fileID: 0}
 --- !u!1 &1617534579
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2649,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763425333}
   m_CullTransparentMesh: 1
+--- !u!1 &2021027635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2021027636}
+  - component: {fileID: 2021027637}
+  m_Layer: 0
+  m_Name: WeaponsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2021027636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021027635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.63893443, y: 0.3256679, z: 2346.7979}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2021027637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021027635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65124e24c9054b54c914b1b1cc1e8903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numWeaponAttack: 5
+  _projectilePrefabs:
+  - {fileID: 2398323060253877317, guid: 5d3548f3b27bfc44da8a1cdb56274e27, type: 3}
+  _weapons:
+  - {fileID: 1605587154}
+  - {fileID: 1582153148}
+  - {fileID: 75914532}
+  - {fileID: 1616177633}
+  - {fileID: 859195708}
+  - {fileID: 794733035}
+  - {fileID: 1308968571}
+  - {fileID: 445200150}
+  - {fileID: 1387911595}
+  - {fileID: 886746142}
+  - {fileID: 277387800}
+  - {fileID: 824130792}
+  - {fileID: 2134062810}
+  - {fileID: 539007691}
+  - {fileID: 80002631}
+  - {fileID: 849321921}
 --- !u!1 &2134062808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponDirection: 1
+  _projectilePrefab: {fileID: 0}
 --- !u!1001 &4591605928624135991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2787,4 +2867,5 @@ SceneRoots:
   - {fileID: 924622208}
   - {fileID: 519420032}
   - {fileID: 1622021106}
+  - {fileID: 2021027636}
   - {fileID: 395776608}

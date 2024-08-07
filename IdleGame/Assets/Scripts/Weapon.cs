@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+
     [SerializeField]
     private WeaponDirection _weaponDirection;
 
-    private GameObject _projectilePrefab;
+    public GameObject _projectilePrefab;
 
-    public void GettingProjectile()
+    private void OnEnable()
     {
-        
+        WeaponsController.onShot += Shot;
+    }
+    private void OnDisable()
+    {
+        WeaponsController.onShot -= Shot;
     }
 
     public void Shot()

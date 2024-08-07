@@ -25,3 +25,10 @@ public enum WeaponDirection
     Left,
     Right
 }
+
+public enum GameStage
+{
+    FirstStage = 1,
+    SecondStage = 2,
+    ThirdStage = 3
+}
