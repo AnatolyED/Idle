@@ -54,7 +54,7 @@ public class WeaponsController : MonoBehaviour
         }
     }
 
-    public static void SelectGameStage(GameStage gameStage)
+    public void SelectGameStage(GameStage gameStage)
     {
         switch (gameStage)
         {

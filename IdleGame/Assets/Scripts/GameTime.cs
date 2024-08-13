@@ -39,26 +39,24 @@ public class GameTime : MonoBehaviour
                 Minets = 0;
                 Seconds = 0;
             }
-            //GameStage(Minets);
+            GameStage();
         }
     }
 
-    public static void GameStage(int minets,GameStage gameStage)
+    public  void GameStage()
     {
-        if(minets <= 2)
+        if(Minets <= 2)
         {
-            gameStage = global::GameStage.FirstStage;
+            GameStages = global::GameStage.FirstStage;
         }
-        else if (minets <= 4)
+        else if (Minets <= 4)
         {
-            gameStage = global::GameStage.SecondStage;
+            GameStages = global::GameStage.SecondStage;
         }
-        else if(minets > 6)
+        else if(Minets > 6)
         {
-            gameStage = global::GameStage.ThirdStage;
+            GameStages = global::GameStage.ThirdStage;
         }
-
-        WeaponsController.SelectGameStage(gameStage);
         //сделать скрипт из которого можно получать контроллеры и передавать/получать данные
     }
 }
