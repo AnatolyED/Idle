@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameTime : MonoBehaviour
 {
-    public static Action onActionOverTime;
+    public static Action<GameStage> onActionOverTime;
 
     [field: SerializeField]
     public int Hours { get; private set; }
@@ -12,8 +12,6 @@ public class GameTime : MonoBehaviour
     public int Minets { get; private set; }
     [field: SerializeField]
     public int Seconds { get; private set; }
-
-    public GameStage GameStages { get; set; }
 
     private void Start()
     {
@@ -32,6 +30,7 @@ public class GameTime : MonoBehaviour
             {
                 Minets += 1;
                 Seconds = 0;
+                
             }
             else
             {
@@ -39,23 +38,23 @@ public class GameTime : MonoBehaviour
                 Minets = 0;
                 Seconds = 0;
             }
-            GameStage();
+            yield return new WaitForSeconds(1f);
         }
     }
 
-    public  void GameStage()
+    public  void SelectGameStage()
     {
         if(Minets <= 2)
         {
-            GameStages = global::GameStage.FirstStage;
+            onActionOverTime(GameStage.FirstStage);
         }
         else if (Minets <= 4)
         {
-            GameStages = global::GameStage.SecondStage;
+            onActionOverTime(GameStage.SecondStage);
         }
         else if(Minets > 6)
         {
-            GameStages = global::GameStage.ThirdStage;
+            onActionOverTime(GameStage.ThirdStage);
         }
         //сделать скрипт из которого можно получать контроллеры и передавать/получать данные
     }

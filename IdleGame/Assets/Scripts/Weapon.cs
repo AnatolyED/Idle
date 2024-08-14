@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
     [SerializeField]
     private WeaponDirection _weaponDirection;
+    [SerializeField] public float _attackSpeed;
 
     public GameObject _projectilePrefab;
 
@@ -19,7 +19,9 @@ public class Weapon : MonoBehaviour
 
     public void Shot()
     {
-        GameObject projectile;
+        GameObject projectile = Instantiate(_projectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.AddForce(projectile.transform.forward * _attackSpeed, ForceMode2D.Impulse);
         switch (_weaponDirection)
         {
             case WeaponDirection.Left:
