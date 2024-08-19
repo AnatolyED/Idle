@@ -42,6 +42,6 @@ public class PlayerController : MonoBehaviour
 
     public void Death()
     {
-        Time.timeScale = 0f;
+        _rb.bodyType = RigidbodyType2D.Static;
     }
 }

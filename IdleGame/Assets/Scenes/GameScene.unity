@@ -2865,8 +2865,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefabs:
   - {fileID: 2398323060253877317, guid: 5d3548f3b27bfc44da8a1cdb56274e27, type: 3}
-  _projectileSpeed: 0.05
+  _weaponShotingCounts: 0
+  _projectileSpeed: 0.01
   _reloadingShotTime: 2
+  countWeaponToFire: 0
   _weapon:
   - {fileID: 1605587154}
   - {fileID: 1582153148}
@@ -2943,6 +2945,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 395776608}
     m_Modifications:
+    - target: {fileID: 2246819171748583090, guid: 3f635fa288962ad439960b5418fc2843, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2896630918398012802, guid: 3f635fa288962ad439960b5418fc2843, type: 3}
       propertyPath: m_Name
       value: CharaterOne

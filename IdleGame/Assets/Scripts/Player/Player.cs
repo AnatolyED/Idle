@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Projectile" ||
             collision.gameObject.tag == "DeathObject")
         {
-            onDeath?.Invoke();
+             onDeath?.Invoke();
         }
     }
 }

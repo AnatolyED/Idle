@@ -6,12 +6,26 @@ using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
 {
+    public static UiController Instance;
+
     [field: SerializeField]
     public GameObject DeathWindow { get; private set; }
     [field: SerializeField]
     public Button Restart { get; private set; }
     [field: SerializeField]
     public Button BackToMainMenu {get; private set;}
+
+    private void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else 
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnEnable()
     {
@@ -30,7 +44,6 @@ public class UiController : MonoBehaviour
     private void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
     }
 
     private void BackToMenu()
@@ -38,9 +51,9 @@ public class UiController : MonoBehaviour
         SceneManager.LoadScene("Menu",LoadSceneMode.Single);
     }
 
-    private void EnableDeathPanel()
+    public void EnableDeathPanel()
     {
-        DeathWindow.SetActive(!DeathWindow.activeSelf);
+        DeathWindow.SetActive(true);
     }
 
     public void EnableAndDisable(GameObject uiElement)

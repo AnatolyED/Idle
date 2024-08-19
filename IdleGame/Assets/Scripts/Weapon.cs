@@ -21,10 +21,10 @@ public class Weapon : MonoBehaviour
         switch (direction)
         {
             case WeaponDirection.Left:
-                projectileRb.AddForce(Vector2.right * projectileSpeed * Time.deltaTime, ForceMode2D.Impulse);
+                projectileRb.AddForce(Vector2.right * projectileSpeed * Time.deltaTime, ForceMode2D.Force);
                 break;
             case WeaponDirection.Right:
-                projectileRb.AddForce(Vector2.left * projectileSpeed * Time.deltaTime, ForceMode2D.Impulse);
+                projectileRb.AddForce(Vector2.left * projectileSpeed * Time.deltaTime, ForceMode2D.Force);
                 break;
             default:
                 break;

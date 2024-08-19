@@ -14,13 +14,27 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     private float _reloadingShotTime;
     [SerializeField]
+    private int countWeaponToFire;
+    [SerializeField]
     private List<Weapon> _weapon;
+
+    private Coroutine _shootCycle;
 
     public static Action<GameObject, float> OnShoot;
 
     private void Start()
     {
-        StartCoroutine(FullCycleOfWeapons());
+        _shootCycle = StartCoroutine(FullCycleOfWeapons());
+    }
+
+    private void OnEnable()
+    {
+        Player.onDeath += StopShootCycle;
+    }
+
+    private void OnDisable()
+    {
+        Player.onDeath -= StopShootCycle;
     }
 
     private IEnumerator FullCycleOfWeapons()
@@ -28,12 +42,12 @@ public class WeaponController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         System.Random rnd = new System.Random();
-        int countWeaponToFire;
         List<Weapon> selectedWeapons = new List<Weapon>();
 
         while (true)
         {
             countWeaponToFire = rnd.Next(0, _weapon.Count);
+            selectedWeapons = SelectWeapons(rnd);
 
             for (int i = 0; i < countWeaponToFire; i++)
             {
@@ -48,13 +62,24 @@ public class WeaponController : MonoBehaviour
     {
         List<Weapon> weapons = new List<Weapon>();
         short weaponSelected;
+
         for (int i = 0; i < _weaponShotingCounts; i++)
         {
             weaponSelected = (short)rnd.Next(0, _weapon.Count);
-            if ()
+            if (weapons.Contains(_weapon[weaponSelected]))
             {
-                if(Array.Exists(SelectWeapo))
+                weapons.Add(_weapon[weaponSelected]);
+            }
+            else
+            {
+                i--;
             }
         }
+        return weapons;
+    }
+
+    private void StopShootCycle()
+    {
+        StopCoroutine(_shootCycle);
     }
 }
